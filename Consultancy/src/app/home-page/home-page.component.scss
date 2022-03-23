@@ -1,0 +1,64 @@
+.example-spacer {
+    flex: 1 1 auto;
+    padding:0
+  }
+  
+
+.bg-image{
+    background-image: url('./../../assets/geneva-gloval-website-hero-design.jpg');
+    height: 80vh;
+    display:block;
+    margin: 0;
+    padding-top:0;
+    // background-repeat: no-repeat;
+}
+
+.wrapper{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 550px;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.wrapper .input {
+    width: 85%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.searchbtn {
+    background: #303F9F;
+    width: 10%;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.searchbtn .fas{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+}
+
+.wrapper2{
+	position: absolute;
+    top: 70%;
+    left: 45%;
+    // transform: translate(-50%, -50%);
+    // max-width: 550px;
+    // width: 100%;
+    // padding: 15px;
+    // display: flex;
+    // justify-content: space-between;
+    // border-radius: 5px;
+}

@@ -1,0 +1,20 @@
+{
+   "Homeaddress":[
+       {
+          "add":"A/001"
+       },
+       {
+          "add":"B/001"
+       }
+   ],
+
+   "Companyaddress":[
+    {
+       "add":"A/001"
+    },
+    {
+       "add":"B/001"
+    }
+  ]
+
+}

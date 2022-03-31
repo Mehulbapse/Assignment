@@ -2,118 +2,151 @@
 <mat-divider></mat-divider>
 
 <form [formGroup]="registerForm">
-<div class="row">
-  <!-- <form [formGroup]="data"> -->
-    <div class="col-4">
-      col-8
+  <div class="row">
+    <div class="col-4 mt-4">
+      <img [src]="urllink" class="img-thumbnail" alt="..." /><br /><br />
+      <input type="file" id="file" (change)="selectFile($event)" />
+      <br />
     </div>
     <div class="col-8">
-
       <div class="form-div">
-        <mat-form-field style="width:46%">
-          <input formControlName="firstName" matInput placeholder="First Name">
+        <mat-form-field style="width: 46%">
+          <input
+            formControlName="firstName"
+            matInput
+            placeholder="First Name"
+          />
+          <mat-error *ngIf="registerForm.get('firstName').hasError('pattern')"
+            >Only 20 Characters are allowed</mat-error
+          >
         </mat-form-field>
         &nbsp;
-        <mat-form-field style="width:41%">
-          <input formControlName="lastName" matInput placeholder="Last Name">
+        <mat-form-field style="width: 41%">
+          <input formControlName="lastName" matInput placeholder="Last Name" />
+          <mat-error *ngIf="registerForm.get('lastName').hasError('required')"
+            >Field is required *</mat-error
+          >
         </mat-form-field>
+
       </div>
 
-      <mat-form-field style="width:100%">
-        <input formControlName="email" matInput placeholder="Email">
+      <mat-form-field style="width: 100%">
+        <input formControlName="email" matInput placeholder="Email" />
       </mat-form-field>
 
-      <mat-form-field style="width:100%">
-        <input formControlName="phone" matInput placeholder="(+91) 754-3101">
+      <mat-form-field style="width: 100%">
+        <input formControlName="phone" matInput placeholder="(+91) 754-3101" />
       </mat-form-field>
 
-      <div class="form-group mt-3 ">
-        Age : 
-         <mat-slider color="primary" #gridsize thumbLabel min="1" max="100" formControlName="age" #matInput  step="1" style="width: 90%" [value]="gridsize.value" ></mat-slider>
+      <div class="form-group mt-3">
+        Age :
+        <mat-slider
+          color="primary"
+          #gridsize
+          thumbLabel
+          min="1"
+          max="100"
+          formControlName="age"
+          #matInput
+          step="1"
+          style="width: 90%"
+          [value]="gridsize.value"
+        ></mat-slider>
       </div>
 
-      <mat-form-field appearance="fill" style="width:100%">
+      <mat-form-field appearance="fill" style="width: 100%">
         <mat-label>Country</mat-label>
-        <mat-select formControlName="country" [(ngModel)]="country" (selectionChange)="setCountry(country)">
-          <mat-option *ngFor="let country of countryData.countries" value="{{country.country}}">
-            {{country.country}}
+        <mat-select formControlName="country" (selectionChange)="setCountry()">
+          <mat-option
+            *ngFor="let country of countryData.countries"
+            value="{{ country.country }}"
+          >
+            {{ country.country }}
           </mat-option>
         </mat-select>
+        <mat-error *ngIf="registerForm.get('country').hasError('required')"
+            >Field is required *</mat-error
+          >
       </mat-form-field>
 
-      <mat-form-field appearance="fill" style="width:100%">
+      <mat-form-field appearance="fill" style="width: 100%">
         <mat-label>State</mat-label>
         <mat-select formControlName="state">
           <mat-option *ngFor="let state of newStateSelection" [value]="state">
-            {{state}}
+            {{ state }}
           </mat-option>
         </mat-select>
+        <mat-error *ngIf="registerForm.get('state').hasError('required')"
+            >Field is required *</mat-error
+          >
       </mat-form-field>
 
-      
-     
-
-
-
-      <mat-form-field  appearance="fill" style="width:100%">
-        <mat-label>Select Address</mat-label>  
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Select Address</mat-label>
         <mat-select matNativeControl multiple formControlName="address">
-          <mat-option>-- None --</mat-option>
+          
           <mat-optgroup label="Home Address">
-            <mat-option *ngFor="let address of addressData.Homeaddress" value="{{address.add}}">{{address.add}}</mat-option>
-
+            <mat-option
+              *ngFor="let address of addressData.Homeaddress"
+              value="{{ address.add }}"
+              >{{ address.add }}</mat-option
+            >
           </mat-optgroup>
           <mat-optgroup label="Company Address">
-            <mat-option *ngFor="let address of addressData.Companyaddress" value="{{address.add}}">{{address.add}}</mat-option>
-          </mat-optgroup> 
+            <mat-option
+              *ngFor="let address of addressData.Companyaddress"
+              value="{{ address.add }}"
+              >{{ address.add }}</mat-option
+            >
+          </mat-optgroup>
         </mat-select>
-      </mat-form-field> 
-      
-
-      <mat-form-field class="example-chip-list" style="width:100%" >
-        <input placeholder="Tags..."
-              [matChipInputFor]="chipList"
-              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              [matChipInputAddOnBlur]="addOnBlur"
-              (matChipInputTokenEnd)="add($event)" formControlName="tags">
-      
-        <mat-chip-list #chipList>
-        </mat-chip-list>
+        <mat-error *ngIf="registerForm.get('address').hasError('required')"
+            >Field is required *</mat-error
+          >
       </mat-form-field>
-      
-      <mat-chip *ngFor="let tag of tags" [selectable]="selectable"
-              [removable]="removable" (removed)="remove(tag)" >
-        {{tag.name}}
+
+      <mat-form-field class="example-chip-list" style="width: 100%">
+        <input
+          placeholder="Tags..."
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)"
+          formControlName="tags"
+        />
+
+        <mat-chip-list #chipList> </mat-chip-list>
+      </mat-form-field>
+
+      <mat-chip
+        *ngFor="let tag of tags"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(tag)"
+      >
+        {{ tag.name }}
         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
       </mat-chip>
-
-
-      
-
-      
-      
-      
     </div>
-
-   
-</div>
-</form>
-<div style="padding-left: 34%;padding-top: 15px;">
-  <button mat-raised-button color="primary" (click)="addUser(registerForm.value)" [disabled]="registerForm.invalid" >Add User</button>
-  <button mat-raised-button color="accent" on-click="cancel()" style="margin-left:50px;">Cancel</button>
-</div> 
-
-
-
-
-
-
-
-<!-- <div class="form-group">
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" id="gridCheck">
-    <label class="form-check-label" for="gridCheck">
-      Check me out
-    </label>
   </div>
-</div> -->
+</form>
+<div style="padding-left: 34%; padding-top: 15px">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="addUser(registerForm.value)"
+    [disabled]="registerForm.invalid"
+  >
+    Add User
+  </button>
+  <button
+    mat-raised-button
+    color="accent"
+    on-click="cancel()"
+    style="margin-left: 50px"
+  >
+    Cancel
+  </button>
+</div>
+
+

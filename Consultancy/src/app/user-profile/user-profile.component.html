@@ -1,1 +1,47 @@
-<p>user-profile works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="col-4 mt-4">
+        <img src="{{ image }}" class="img-thumbnail" alt="..." /><br /><br />
+        <button mat-raised-button color="primary" (click)="editProfile()">
+          Edit Profile
+        </button>
+      </div>
+    </div>
+
+    <div class="col-6" style="padding-top: 135px">
+      <table>
+        <tr>
+          <td style="width: 30%"><strong>Name :</strong></td>
+          &nbsp; &nbsp;&nbsp;
+          <td>{{ data.firstName }} {{ data.lastName }}</td>
+        </tr>
+        <tr>
+          <td style="width: 30%"><strong>Email Id :</strong></td>
+          &nbsp; &nbsp;&nbsp;
+          <td>{{ data.email }}</td>
+        </tr>
+        <tr>
+          <td style="width: 30%"><strong>Age :</strong></td>
+          &nbsp; &nbsp;&nbsp;
+          <td>{{ data.age }}</td>
+        </tr>
+        <tr>
+          <td style="width: 30%"><strong>Contact :</strong></td>
+          &nbsp; &nbsp;&nbsp;
+          <td>{{ data.phone }}</td>
+        </tr>
+        <tr>
+          <td style="width: 30%"><strong>Country :</strong></td>
+          &nbsp; &nbsp;&nbsp;
+          <td>{{ data.country }}</td>
+        </tr>
+        <tr>
+          <td style="width: 30%"><strong>State :</strong></td>
+          &nbsp; &nbsp;&nbsp;
+          <td>{{ data.state }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

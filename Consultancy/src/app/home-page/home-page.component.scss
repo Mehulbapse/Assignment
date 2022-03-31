@@ -1,16 +1,9 @@
-.example-spacer {
-    flex: 1 1 auto;
-    padding:0
-  }
-  
+
 
 .bg-image{
-    background-image: url('./../../assets/geneva-gloval-website-hero-design.jpg');
+    background-image: url('./../../assets/images/devise-and-consultancy-office-D8JCE1.jpg');
     height: 80vh;
-    display:block;
-    margin: 0;
-    padding-top:0;
-    // background-repeat: no-repeat;
+    filter: blur(0.2px);
 }
 
 .wrapper{
@@ -62,3 +55,36 @@
     // justify-content: space-between;
     // border-radius: 5px;
 }
+
+
+.jumbotron{
+  height: 500px;
+  border:solid 1px;
+}
+
+.jumbotron h1
+{
+  font-style: italic;
+   padding-top: 20px;
+   text-align: center;
+}
+
+.jumbotron p{
+  padding-top:13px;
+  font-size:55px;
+  font-style: italic;
+  text-align: center;
+}
+
+.jumbotron divider{
+  border-top-color: #7e418d;
+  border-top-width: 18px;
+}
+
+
+.jumbotron h4{
+  padding-top: 50px;
+  text-align: center;
+}
+
+

@@ -10,6 +10,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MaterialModule } from 'src/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -19,7 +22,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomePageComponent,
     UserRegistrationComponent,
     UserProfileComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
